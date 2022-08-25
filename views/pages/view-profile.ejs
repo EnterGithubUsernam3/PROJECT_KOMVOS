@@ -1,0 +1,179 @@
+<link rel="stylesheet" href="/customCss/userprofile.css">
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><img src="http://localhost:1337/images/komvos/KOMVOS7.png" alt="Komvos logo"
+        width="45em" height="28em"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Αρχική</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/#features">Ποιοι είμαστε</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Κοινότητα
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="/listings-offered">Αγγελίες Προσφοράς</a></li>
+            <li><a class="dropdown-item" href="/listings-received">Αγγελίες Ζήτησης</a></li>
+            <li><a class="dropdown-item" href="/events">Δράσεις</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="dropdown profileDropdown">
+      <button class=" btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        <img class="profile-image" src="<%= photo %>" alt="Profile img">
+      </button>
+      <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="/userprofile">Προφίλ</a></li>
+        <% if(isAdmin) { %>
+          <li><a class="dropdown-item" href="/admin">Σελίδα Διαχειριστή </a></li>
+          <% } %>
+        <li><a class="dropdown-item" href="/donation">Δωρεά</a></li>
+        <li><a class="dropdown-item" href="/logout">Αποσύνδεση</a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<div id="view" class="px-4 ">
+  <div class="container-xl px-4 mt-4">
+
+    <div class="row">
+      <!-- Κάρτα μενού -->
+      <div class="col-xl-4 col-md-4">
+        <!-- Profile picture card-->
+        <div class="card mb-4 mb-xl-0">
+          <!-- <div class="card-header">Profile Picture</div> -->
+          <div class="card-body text-center" id="regularMenu">
+            <!-- Profile picture image-->
+            <img class="img-account-profile rounded-circle mb-2" src="http://localhost:1337/<%= user.photo %>"
+              alt="">
+            <!-- JPG or PNG no larger than 5 MB -->
+            <p onclick="displayContent(profileCard)"> <a href="#">
+                <%= user.firstName + " " + user.lastName %>
+              </a> </p>
+            <!-- Profile picture upload button-->
+
+
+            <br>
+            <button class="btn btn-dark btnProf mt-2" onclick="toggleCard()" type="button">Προφίλ</button>
+            <br>
+            <form action=<%='/chat/' + user.id%> method="GET">
+              <button class="btn btn-dark btnProf mt-2" type="submit">Στείλε Μήνυμα</button>
+            </form>
+          </div>
+
+          <!-- less than 768 version -->
+          <div class="card-body text-center" id="smallMenu">
+            <img class="img-account-profile rounded-circle mb-2" src="http://localhost:1337/<%= user.photo %>"
+              alt="">
+            <p onclick="displayContent(profileCard)"> <a href="#">
+                <%= user.firstName + " " + user.lastName %>
+              </a> </p>
+            <button class="btn btn-dark btnProf inline mt-2" onclick="toggleCard()" type="button"">Προφίλ</button>
+            <form action=<%='/chat/' + user.id%> method=" GET" class="inline">
+              <button class="btn btn-dark btnProf mt-2" type="submit">Μήνυμα</button>
+              </form>
+
+          </div>
+          <!-- less than 768 version -->
+
+        </div>
+      </div>
+
+      <div class="col-xl-8 col-md-8">
+        <!-- User's Profile card  -->
+        <div class="card mb-4 content" id="profileCard">
+
+          <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-link active">
+                <%= user.firstName + " " + user.lastName %>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <h5 class="card-title">Πληροφορίες:</h5>
+                <hr>
+
+                <div class="row pt-2">
+                  <div class="col-lg-4">Ηλικία:</div>
+                  <div class="col-lg-8" id="cardAge">
+                  </div>
+                </div>
+
+                <div class="row pt-2">
+                  <div class="col-lg-4">Φύλο:</div>
+                  <div class="col-lg-8" id="cardGender">
+                  </div>
+                </div>
+
+                <div class="row pt-2">
+                  <div class="col-lg-4">Email:</div>
+                  <div class="col-lg-8">
+                    <%= user.email %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <h5 class="card-title">Περιγραφή:</h5>
+                <hr>
+
+                <p>
+                  <%= user.description %>
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        <!-- User's Profile card  -->
+
+
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<!-- FOOTER -->
+<footer class="container-fluid">
+  <hr class="featurette-divider mb-3">
+  <div class="row">
+    <div class="col-md-5">
+      <p>&copy; 2022 Komvos &middot; </p>
+    </div>
+    <div class="col-md-3"><img src="http://localhost:1337/images/komvos/komvosRed.png" alt="komvosLogo" height="35em">
+    </div>
+    <div class="col-md-4">
+      <!-- <p class="float-end back-topbtn"></p> -->
+    </div>
+  </div>
+
+</footer>
+<script>
+  // get the users gender from the controller
+  let gender = '<%= user.gender %>';
+
+  // get the users date of birth from the controller
+  let dateOfBirth = '<%= user.dateOfBirth %>';
+
+</script>
+<script src="/customJs/view-profile.js"></script>

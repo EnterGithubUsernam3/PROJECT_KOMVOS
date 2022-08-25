@@ -1,0 +1,25 @@
+body {
+    padding-top: 5%;
+}
+
+.alert-success {
+    text-align: center;
+}
+
+#redirectToProfile{
+    display: none;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color: #ffffff;
+}
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+a:hover{
+    color: #ffffff;
+}

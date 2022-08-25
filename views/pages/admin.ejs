@@ -1,0 +1,244 @@
+<link rel="stylesheet" href="/customCss/admin.css">
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" id="userNavBar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><img src="images/komvos/KOMVOS7.png" alt="Komvos logo" width="45em"
+                    height="28em"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Αρχική</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/#features">Ποιοι είμαστε</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Κοινότητα
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/listings-offered">Αγγελίες Προσφοράς</a></li>
+                            <li><a class="dropdown-item" href="/listings-received">Αγγελίες Ζήτησης</a></li>
+                            <li><a class="dropdown-item" href="/events">Δράσεις</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="dropdown profileDropdown">
+                <button class=" btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <img class="profile-image" src="<%= photo %>"
+                        alt="Profile img">
+                </button>
+                <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="/userprofile">Προφίλ </a></li>
+                    <li><a class="dropdown-item" href="/admin">Σελίδα Διαχειριστή </a></li>
+                    <li><a class="dropdown-item" href="/donation">Δωρεά</a></li>
+                    <li><a class="dropdown-item" href="/logout">Αποσύνδεση</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+</header>
+
+<main>
+    <div class="container-fluid">
+
+        <div class="row ">
+            <div class="col-sm-9">
+                <h3>Κατηγορίες Αγγελιών</h3>
+            </div>
+            <div class="col-sm-3">
+                <div class="text-end">
+                    <button type="button" class="btn btn-danger btn-lg" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop" id="createListing">Προσθήκη Κατηγορίας</button>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="categories">
+            <% for (let i=0; i < categories.length; i++){ %>
+
+                <div class="card mb-4 content">
+                    <div class="card-header">
+                        <div>
+                            <p class="h5" id="<%= categories[i].name %>">
+                                <%= categories[i].name %>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <br>
+                        <div class="row">
+                            <div class="col-2"><img class="img" src="/images/admin/22222.PNG" alt="">
+                            </div>
+                            <div class="col-10">
+                                <div class="description">
+                                    <%= categories[i].description %>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="text-end">
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop<%= categories[i].id %>">Επεξεργασία</button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#delete<%= categories[i].id %>">Διαγραφή</button>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Modal for creating listing categories -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Δημιουργία Κατηγορίας</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-create-listing-categories" action="/restlistingcategories"
+                                    method="POST">
+
+                                    <div class="form-group row">
+                                        <label for="type" class="col-md-4 col-form-label">Τίτλος: </label>
+                                        <div class="col-md-8">
+                                            <input placeholder="Όνομα" name="name" maxlength="50" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="type" class="col-md-4 col-form-label">Περιγραφή: </label>
+                                        <div class="col-md-8">
+                                            <textarea class="form-control" name="description" maxlength="200"
+                                                id="small_bio" rows="5" required></textarea>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ακύρωση</button>
+                                <button type="submit" class="btn btn-danger">Δημιουργία</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal for update listing categories -->
+                <div class="modal fade" id="staticBackdrop<%= categories[i].id %>" data-bs-backdrop="static"
+                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop<%= categories[i].id %>"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Επεξεργασία Κατηγορίας</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <form class="form-listing-categories" action="/updatelistingcategories" method="POST">
+                                <div class="modal-body">
+
+
+                                    <div class="form-group row">
+                                        <label for="type" class="col-md-4 col-form-label">Τίτλος: </label>
+                                        <div class="col-md-8">
+                                            <input name="id" value="<%= categories[i].id %>" hidden>
+                                            <input placeholder="Όνομα" name="name" value="<%=categories[i].name %>"
+                                                maxlength="50" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="type" class="col-md-4 col-form-label">Περιγραφή: </label>
+                                        <div class="col-md-8">
+                                            <textarea class="form-control" name="description" maxlength="200"
+                                                id="small_bio" rows="5"
+                                                required><%= categories[i].description %></textarea>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Ακύρωση</button>
+                                    <button type="submit" class="btn btn-danger">Αποθήκευση</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Modal for delete listing categories -->
+                <div class="modal fade" id="delete<%= categories[i].id %>" data-bs-backdrop="static"
+                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete<%= categories[i].id %>"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Επιθυμείς να συνεχίσεις;</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+
+                            <div class="modal-body">
+
+                                <p>Προσοχή! Δεν πρέπει να διαγραφεί κάποια κατηγορία η οποία περιέχει αγγελίες!</p>
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <form action="/delete" method="POST" style="display: inline">
+                                    <input type="text" name="id" value="<%= categories[i].id %>" hidden>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ακύρωση
+                                    </button>
+                                    <button type="submit" class="btn btn-danger">Διαγραφή</button>
+                                </form>
+
+
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+                <% } %>
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <!-- <footer class="container">
+        <p class="float-end back-topbtn"><a href="#">Top</a></p>
+        <p>&copy; 2022 Komvos &middot; </p>
+    </footer> -->
+</main>
+
+<footer class="container-fluid">
+    <hr class="featurette-divider mb-3">
+    <div class="row">
+        <div class="col-md-5">
+            <p>&copy; 2022 Komvos &middot; </p>
+        </div>
+        <div class="col-md-3"><img src="images/komvos/komvosRed.png" alt="komvosLogo" height="35em"></div>
+        <div class="col-md-4">
+            <p class="float-end back-topbtn"><a href="#">&uarr;</a></p>
+        </div>
+    </div>
+
+</footer>

@@ -1,0 +1,47 @@
+#dropdownMenuButton1 {
+    background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 17px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#dropdownMenuButton1 img {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    margin-top: 0px;
+    border: 1px solid #666f88;
+    border-radius: 100%;
+
+}
+.profileDropdown{
+    padding-left: 5rem;
+}
+
+main {
+    padding-top: 3.75rem;
+}
+
+.featurette-divider {
+    margin: 2rem 0;
+
+}
+
+p a {
+    text-decoration: none;
+    color: #212529;
+    padding-left: 2%;
+}
+
+a:hover {
+    color: #842029;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

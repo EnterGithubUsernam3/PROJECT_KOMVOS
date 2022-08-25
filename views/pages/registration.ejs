@@ -1,0 +1,170 @@
+<link rel="stylesheet" href="/customCss/registration.css">
+<div id="registrationBody">
+  <div class="container mt-5">
+    <div class="pb-4" >
+      <a href="/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+      </svg>
+    </a>
+    </div>
+    <div class="row d-flex justify-content-center align-items-center">
+      
+      <div class="col-md-6">
+        <form id="regForm" action="/rest" method="POST">
+
+          <h1 id="register">Εγγραφή</h1>
+
+          <!-- Small dots displaying on top of the form to track the progress of each tab -->
+          <div class="all-steps" id="all-steps">
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+          </div>
+
+          <!-- First tab -->
+          <div class="tab">
+            <p><input placeholder="Όνομα" oninput="this.className = ''" name="firstName"></p>
+            <p><input placeholder="Επώνυμο" oninput="this.className = ''" name="lastName"></p>
+            <p>
+              <div class="row">
+                <div class="col-lg-8"><input type="email" placeholder="Email" oninput="emailInputEventHandler()" name="email" id="regEmail"></div>
+                <div class="col-lg-4"><button type="button" id="checkIfUnique">Επιβεβαίωση</button></div>
+              </div>
+
+              <small id="emailValidation">*Παρακαλούμε εισάγετε έγκυρη διεύθυνση email.</small>
+              <small id="emailExists">*Αυτή η διεύθυνση email υπάρχει ήδη.</small>
+              <small id="emailChecking">*Παρακαλούμε πατήστε το κουμπί επιβεβαίωση.</small>
+            </p>
+
+            <p>
+              <input type="password" placeholder="Κωδικός" oninput="hidePassValidation()" name="password" id="password">
+              <small id="passwordCheck">*Ο κωδικός πρέπει να αποτελείται από 8 τουλάχιστον χαρακτήρες χωρίς κενά.</small>
+            </p>
+            
+          </div>
+
+          <!-- Second tab -->
+          <div class="tab">
+            <p>Φύλο:</p>
+            <label class="container" for="male">
+              Άνδρας <input type="radio" name="gender" id="male" value="Male" onclick="hideGenderValidation();">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container" for="female">
+              Γυναίκα <input type="radio" name="gender" id="female" value="Female" onclick="hideGenderValidation();">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container" for="other">
+              Άλλο <input type="radio" name="gender" id="other" value="Non-Binary" onclick="hideGenderValidation();">
+              <span class="checkmark"></span>
+            </label>
+            <small id="genderValidation">*Παρακαλούμε εισάγετε το φύλο σας.</small>
+
+            <p>Ημερομηνία Γέννησης: </p>
+            <p><input type="date" placeholder="Ημερομηνία Γέννησης" oninput="hideAgeValidation()" name="dateOfBirth"
+                id="regDateOfBirth">
+                <small id="ageValidation">*Επιτρεπτό όριο ηλικίας μεταξύ 18 και 80.</small>
+              </p>
+            
+
+            <p>Υπάρχει διεύθυνση σταθερής κατοικίας; :</p>
+            <label class="container">
+              Ναι <input id="addressYes" type="radio" name="radioAddress" value="true"
+                onclick="displayAddress();">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">
+              Όχι <input id="addressNo" type="radio" name="radioAddress" value="false" onclick="displayAddress();" checked>
+              <span class="checkmark"></span>
+            </label>
+            <div id="divAddress">
+              <p>Διεύθυνση: </p>
+              <p><input placeholder="Πανεπιστημίου 39" oninput="this.className = ''" id="regAddress" name="address"></p>
+            </div>
+          </div>
+
+          <!-- Third tab -->
+          <div class="tab">
+            <div class="form-group row pt-2 pb-4">
+              <label for="regSmallbio" class="col-4 col-form-label"> Λίγα λόγια για εμένα: </label>
+              <div class="col-6">
+                <textarea class="form-control" name="description" id="regSmallbio" rows="5" placeholder="Περιγράψτε τις δεξιότητες και τους τομείς προσφοράς του κόμβου που σας ενδιαφέρουν! Βοηθήστε τους άλλους χρήστες να σας γνωρίσουν καλύτερα!"  oninput="this.className = ''" maxlength="200"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fourth tab -->
+          <div class="tab pb-3">
+            <p>Μερικές ερωτήσεις για να γνωριστούμε καλύτερα. Αυτές οι πληροφορίες δεν θα γίνουν ποτέ γνωστές σε
+              τρίτους.
+              Μπορείτε ανα πάσα στιγμή να τις ανανεώσετε.</p>
+
+            <p>Αυτό το διάστημα έχετε μόνιμη εργασία:</p>
+            <label class="container">
+              Ναι<input type="radio" checked="checked" name="employeed" id="workYes" value="true">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">
+              Οχι<input type="radio" name="employeed" id="workNo" value="false">
+              <span class="checkmark"></span>
+            </label>
+
+            <p>Υπάρχει κάποια μορφή αναπηρίας:</p>
+            <label class="container">
+              Ναι<input type="radio" checked="checked" name="disabled" id="disabledYes" value="true">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">
+              Οχι<input type="radio" name="disabled" id="disabledNo" value="false">
+              <span class="checkmark"></span>
+            </label>
+
+            <p>Έχετε ασχοληθεί στο παρελθόν ξανά με εθελοντισμό:</p>
+            <label class="container">
+              Ναι<input type="radio" checked="checked" name="volunteer" id="voluntarismYes" value="true">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">
+              Οχι<input type="radio" name="volunteer" id="voluntarismNo" value="false">
+              <span class="checkmark"></span>
+            </label>
+
+            <p>Πόσο ελεύθερο χρόνο διαθέτετε μέσα στη βδομάδα για εθελοντικές δράσεις:</p>
+            <label class="container">
+              Καθόλου<input type="radio" checked="checked" name="freeTime" id="freeTimeNone" value="freeTimeNone">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">
+              Ελάχιστο χρόνο<input type="radio" name="freeTime" id="freeTimeMinimum" value="freeTimeMinimum">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">
+              Κυρίως τα σαββατοκύριακα<input type="radio" name="freeTime" id="freeTimeWeekend" value="freeTimeWeekend">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">
+              Μερικές μέρες της εβδομάδας<input type="radio" name="freeTime" id="freeTimeSome" value="freeTimeSome">
+              <span class="checkmark"></span>
+            </label>
+
+
+          </div>
+
+          <div id="nextprevious">
+            <div id="regbtns" >
+              <button type="button" id="prevBtn" onclick="nextPrev(-1)">Προηγούμενο</button>
+              <button type="button" id="nextBtn" onclick="nextPrev(1)">Επόμενο</button>
+              <button type="submit" id="submitBtn">Εγγραφή</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- textarea and buttons styling needed in order to be responsive -->
+<script src="/customJs/registration.js"></script>
+<script src="/js/emailSocket.js"></script>

@@ -1,0 +1,25 @@
+body {
+    background-color: #69707a;
+    /* color: white; */
+  }
+  
+  .container {
+    max-width: 1200px;
+    /* margin: 0 auto; */
+    /* margin-left: 10%; */
+  }
+
+  form{
+    margin-top: 10px;
+    border: 1px solid #69707a;
+    border-radius: 5px;
+    height: 80vh;
+    background-color: rgba(255, 255, 255, 0.747);
+    color: black;
+  }
+
+  input {
+    width: 100%;
+    border: 1px solid white;
+    border-radius: 3px;
+  }

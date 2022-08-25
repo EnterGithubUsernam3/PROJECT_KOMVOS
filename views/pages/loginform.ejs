@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="/customCss/logiform.css">
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><img src="images/komvos/KOMVOS7.png" alt="Komvos logo" width="45em" height="28em" ></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Αρχική</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/#features">Ποιοι είμαστε</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Κοινότητα
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="/listings-offered">Αγγελίες Προσφοράς</a></li>
+              <li><a class="dropdown-item" href="/listings-received">Αγγελίες Ζήτησης</a></li>
+              <li><a class="dropdown-item" href="/events">Δράσεις</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="login">
+        <a href="/register">Εγγραφή</a>
+        <a href="/login">Σύνδεση</a>
+      </div>
+
+    </div>
+  </nav>
+</header>
+
+
+<div class="container mt-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+      <div class="card login-form px-5 py-5" id="form1">
+        <p id="userNotFound">Παρακαλούμε έλεγξε ξανά το email και τον κωδικό σου!</p>
+        <div class="form-data">
+          <div class="forms-inputs mb-4 " > <span class="spans">Email </span> <input autocomplete="off" type="text" id="emailInput">
+            <small id="invalidEmail">Το email πρέπει να είναι της μορφής info@example.com!</small>
+          </div>
+          <div class="forms-inputs mb-4"> <span class="spans">Κωδικός</span> <input autocomplete="off" type="password" id="passwordInput">
+            <small id="invalidPassword">Ο κωδικός πρέπει να έχει τουλάχιστον 8 χαρακτήρες!</small> 
+          </div>
+          <div class="mb-3"> <button type="submit" class="btn log-btn w-100" onclick="inputsValidator(event)">Σύνδεση</button> </div>
+        </div>
+          <div id="invisibleDivForUserData" name="userData">
+
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid">
+  <div class="row pb-3">
+    <hr class="featurette-divider mb-3">
+    <div class="col-md-5"><p>&copy; 2022 Komvos &middot; </p></div>
+    <div class="col-md-3"><img src="images/komvos/komvosRed.png" alt="komvosLogo" height="35em"></div>
+    <div class="col-md-4"> </div>
+  </div>
+    
+</footer>
+
+<script src="/customJs/loginForm.js"></script>
+<script src="/js/loginFormSocket.js"></script>

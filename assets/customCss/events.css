@@ -1,0 +1,180 @@
+.card-body img {
+    width: 100px;
+    height: 100px;
+}
+
+/*in order to fit content after the fixed navbar*/
+body {
+    padding-top: 55px;
+}
+
+
+/*create event form in modal*/
+.modal-body form {
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.form-group {
+    padding-bottom: 2%;
+}
+
+.form-group label {
+    padding-top: 0;
+    text-align: right;
+}
+
+input {
+    width: 100%;
+    height: 38px;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    padding: .375rem 2.25rem .375rem .75rem;
+    -moz-padding-start: calc(0.75rem - 3px);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+}
+#validationDate {
+    display: none;
+}
+
+/* Listings */
+.events {
+    width: 50%; 
+    margin: 0 auto;
+}
+.h5 {
+    text-align: center; 
+}
+
+.description {
+    text-align: justify;  
+    width: 80%;
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+    margin-bottom: 1rem;
+}
+
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+    bottom: 3rem;
+    z-index: 10;
+    background-color: #101214bb;
+    width: fit-content;
+    height: fit-content;
+    padding-left: 2% ;
+    padding-right: 2%;
+    color: #ffffff;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+    height: 32rem;
+    background-color: rgb(0, 0, 0);
+}
+
+.carousel-item>img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: 80%;
+    height: 32rem;
+    
+}
+
+#show{
+    padding-left: 25.5%;
+}
+h3{
+    padding-left: 70%;
+}
+.small{
+    display: none;
+}
+
+.featurette-divider {
+    margin: 3rem 0;
+    /* Space out the Bootstrap <hr> more */
+}
+
+
+
+/* back to top btn */
+.back-topbtn {
+    border: 1px solid white;
+    border-radius: 50%;
+    background-color: #212529;
+    width: 35px;
+    height: 30px;
+}
+
+.back-topbtn a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+ 
+@media screen and (max-width:790px) {
+    .form-group label {
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #show{
+      padding-left: 5%;
+    }
+    h3{
+        padding-left: 45%;
+    }
+    .events{
+        width: 90%;
+    }
+    .small{
+        display:block;
+    }
+    .big{
+        display:none;
+    }
+} 
+#login a {
+    margin-right: 1rem;
+    font-size: large;
+    text-decoration: none;
+    color: white;
+}
+
+.profileDropdown {
+    padding-left: 6rem;
+}
+#dropdownMenuButton1 {
+    background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+    color: #fff;
+    border: none;
+    /* padding: 10px; */
+    padding: 5px 10px;
+    font-size: 17px;
+    ;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#dropdownMenuButton1 img {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    margin-top: 0px;
+    border: 1px solid #666f88;
+    border-radius: 100%;
+
+}

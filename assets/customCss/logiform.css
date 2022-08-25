@@ -1,0 +1,97 @@
+#login a {
+    margin-right: 1rem;
+    font-size: large;
+    text-decoration: none;
+    color: white;
+}
+
+body {
+    color: #5a5a5a;
+    background:  #cfcdcd;
+}
+
+#form1 {
+    margin-top: 5rem;
+    border: none;
+    height: 320px
+}
+
+.forms-inputs {
+    position: relative
+}
+
+.forms-inputs span {
+    position: absolute;
+    top: -18px;
+    left: 10px;
+    background-color: #fff;
+    padding: 5px 10px;
+    font-size: 15px
+}
+
+.forms-inputs input {
+    height: 50px;
+    border: 2px solid #eee;
+    padding: 10px;
+    width: 100%;
+    font-size: 17px;
+    font-family: Raleway;
+    border-radius: 5px;
+}
+
+.forms-inputs input:focus {
+    box-shadow: none;
+    outline: none;
+    border: 2px solid #000
+}
+
+.log-btn {
+    height: 50px;
+    
+}
+
+.success-data {
+    display: flex;
+    flex-direction: column
+}
+
+.bxs-badge-check {
+    font-size: 90px
+}
+
+.spans{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.log-btn {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
+    background-color: #5a5a5a;
+    color: whitesmoke;
+   
+}
+
+#invalidEmail{
+    display: none;
+    color: #ff0000;;
+}
+#invalidPassword{
+    display: none;
+    color: #ff0000;
+}
+
+#invisibleDivForUserData {
+    display: none;
+}
+
+#userNotFound{
+    display: none;
+    color: #ff0000;
+    font-size: small;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color:  #cfcdcd;
+}

@@ -1,0 +1,1 @@
+setTimeout(() => { document.getElementById("redirectToProfile").style.display = "block" }, 1200);

@@ -1,0 +1,278 @@
+<link rel="stylesheet" href="/customCss/homepage.css">
+<header>
+  
+  <% if(infoForFront == false) { %>
+   
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" id="GuestNavbar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><img src="images/komvos/KOMVOS7.png" alt="Komvos logo" width="45em" height="28em"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Αρχική</a>
+          </li>
+         
+          <li class="nav-item">
+            <a class="nav-link" href="#features">Ποιοι είμαστε</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Κοινότητα
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="/listings-offered">Αγγελίες Προσφοράς</a></li>
+              <li><a class="dropdown-item" href="/listings-received">Αγγελίες Ζήτησης</a></li>
+              <li><a class="dropdown-item" href="/events">Δράσεις</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="login">
+       <a href="/register">Εγγραφή</a>
+       <a href="/login">Σύνδεση</a>
+        
+      </div>
+
+    </div>
+  </nav>
+  <% } else { %>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" id="userNavBar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img src="images/komvos/KOMVOS7.png" alt="Komvos logo" width="45em" height="28em" ></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Αρχική</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/#features">Ποιοι είμαστε</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Κοινότητα
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="/listings-offered">Αγγελίες Προσφοράς</a></li>
+                <li><a class="dropdown-item" href="/listings-received">Αγγελίες Ζήτησης</a></li>
+                <li><a class="dropdown-item" href="/events">Δράσεις</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="dropdown profileDropdown">
+          <button class=" btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"aria-expanded="false">
+            <img class="profile-image" src="<%= photo %>" alt="Profile img">
+          </button>
+          <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="/userprofile" >Προφίλ </a></li>
+            <% if(isAdmin) { %>
+              <li><a class="dropdown-item" href="/admin">Σελίδα Διαχειριστή </a></li>
+            <% } %>
+            <li><a class="dropdown-item" href="/donation">Δωρεά</a></li>
+            <li><a class="dropdown-item" href="/logout">Αποσύνδεση</a></li>
+          </ul>
+        </div>
+    
+      </div>
+    </nav>
+
+  <% } %>
+</header>
+
+<main>
+
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+        aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+          preserveAspectRatio="xMidYMid slice" focusable="false" src="/images/carousel/hands.jpg" style="margin:auto;">
+          <rect width="100%" height="100%" fill="#777" />
+      </img>
+
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1>Καλώς ήρθατε στον Κόμβο</h1>
+            <p>Μία πλατφόρμα αλληλεγγύης και αλληλοβοήθειας</p>
+            <p><a class="btn carousel-btn btn-lg btn-danger" href="/register">Γίνε μέλος</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+          preserveAspectRatio="xMidYMid slice" focusable="false" src="/images/carousel/foodDon.jpg" style="margin:auto;">
+          <rect width="100%" height="100%" fill="#777" />
+      </img>
+
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1>Συλλογική κουζίνα.</h1>
+            <p>Στο Αιγάλεω κάθε Σάββατο στις 11:00 (στην Έξοδο του Μετρό)</p>
+            <p><a class="btn carousel-btn btn-lg btn-danger" href="http://oallosanthropos.blogspot.com/" target="_blank">Ο άλλος άνθρωπος</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+          preserveAspectRatio="xMidYMid slice" focusable="false" src="/images/carousel/drugs.jpg" style="margin:auto;">
+          <rect width="100%" height="100%" fill="#777" />
+      </img>
+
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1>Ανοιχτή γραμμή βοήθειας - 2103617089</h1>
+            <p></p>
+            <p><a class="btn carousel-btn btn-lg btn-danger" href="http://www.18ano.gov.gr/" target="_blank">Μονάδα Απεξάρτησης 18 Άνω</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+  <!-- Marketing messaging and featurettes
+================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <div class="container marketing">
+
+
+
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <div id="features">
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Kόμβος συνάντησης <span class="text-muted">ανθρώπων</span>
+        </h2>
+        <p class="lead">Για την πόλη της Αθήνας λειτουργούμε ως ένας κόμβος συνάντησης ανθρώπων που ενδιαφέρονται για την κοινότητα. Προσφέρω στην κοινότητα και επωφελούμαι από την προσφορά των υπόλοιπων μελών. Μαζί οργανώνουμε δράσεις, ερχόμαστε κοντά και δομούμε ένα δίκτυο αλληλοβοήθειας.
+        </p>
+      </div>
+      <div class="col-md-5">
+        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="images/homepage/mike-enerio-H58bnmnedTc-unsplash.jpg" width="500"
+          height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
+          preserveAspectRatio="xMidYMid slice" focusable="false">
+      </img>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading">Σύστημα πόντων <span class="text-muted">ανταλλαγής</span></h2>
+        <p class="lead">Στηριζόμαστε στην αυτοοργάνωση και την έμπρακτη αλληλεγγύη. Δεν υπάρχει κανένα χρηματικό αντίτιμο. Βασιζόμαστε σε ένα σύστημα πόντων. Με την εγγραφή του κανείς αποκτά 10 πόντους και ξεκινά την αλληλεπίδραση με την κοινότητα. Υπηρεσίες όπως η παροχή στέγης και τροφής δεν απαιτούν την ανταλλαγή πόντων μεταξύ των μελών.</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="images/homepage/sean-thomas-kkAZWX1f1H0-unsplash.jpg" width="500"
+          height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
+          preserveAspectRatio="xMidYMid slice" focusable="false">
+      </img>
+
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Πως λειτουργεί; <span class="text-muted">Είναι απλό.</span></h2>
+        <p class="lead">Γίνε μέλος και δημιούργησε το προφίλ σου. Είσαι πλέον μέλος της κοινότητας του κόμβου! Δημιούργησε μια αγγελία προσφοράς και ενημέρωσέ μας για το πως μπορείς να συνεισφέρεις! Μπορείς παράλληλα να δεις όλες τις διαθέσιμες αγγελίες και να εκδηλώσεις ενδιαφέρον. Έχεις όρεξη; Δημιούργησε μια δράση! Προσκάλεσε μας σε ένα καθαρισμό της παραλίας! Ας οργανώσουμε μαζί μία συλλογική κουζίνα! Σε θέλουμε ως ενεργό μέλος της κοινότητας του κόμβου! </p>
+      </div>
+      <div class="col-md-5">
+        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="/images/homepage/austin-kehmeier-lyiKExA4zQA-unsplash.jpg" width="500"
+          height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
+          preserveAspectRatio="xMidYMid slice" focusable="false">
+      </img>
+
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <!-- Three columns  -->
+    <div class="row">
+      <div class="col-lg-4">
+        <img class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
+          role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false" src="/images/circleimg/circle1.jpg" >
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em"></text>
+      </img>
+    
+        <h2>Συνεισφέρω</h2>
+        <p>Έχεις χρόνο και μεράκι να προσφέρεις τις υπηρεσίες σου ή κάποια αγαθά στην κοινότητα; Δημιούργησε μια αγγελία και ενημέρωσέ μας σχετικά.</p>
+        
+        <p><a class="btn btn-secondary" href="/listings-offered">Περισσότερα &raquo;</a></p>
+      
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
+          role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false" src="/images/circleimg/tim-mossholder-bo3SHP58C3g-unsplash.jpg">
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em"></text>
+      </img>
+    
+        <h2>Ζητώ</h2>
+        <p>Χρειάζεσαι τη βοήθεια ή τις υπηρεσίες κάποιου μέλους του κόμβου; Μπορείς δημιουργείς μία αγγελία ζήτησης και να το μοιραστείς μαζί μας!
+        </p>
+        
+        <p><a class="btn btn-secondary" href="/listings-received">Περισσότερα &raquo;</a></p>
+       
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
+          role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false" src="/images/circleimg/timon-studler-BIk2ANMmNz4-unsplash.jpg" >
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em"></text>
+      </img>
+        <h2>Δράσεις</h2>
+        <p>Έχεις μία όμορφη ιδέα για κάποια δράση που θα μπορούσαμε να συμμετέχουμε όλοι; Δημιούργησε μία δράση και προσκάλεσέ μας να συνδράμουμε!</p>
+       
+        <p><a class="btn btn-secondary" href="/events">Περισσότερα &raquo;</a></p>
+        
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
+  </div><!-- /.container -->
+    
+
+  <!-- FOOTER -->
+  <footer class="container">
+    <div class="row pb-3">
+      <div class="col-md-4"><p>&copy; 2022 Komvos &middot; </p></div>
+      <div class="col-md-4"><img src="images/komvos/komvosRed.png" alt="komvosLogo" height="40em"></div>
+      <div class="col-md-4"> <p class="float-end back-topbtn"><a href="#">&uarr;</a></p></div>
+    </div>
+      
+  </footer>
+</main>
